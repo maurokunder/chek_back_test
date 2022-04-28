@@ -1,19 +1,51 @@
-version: '3.8' # specify docker-compose version
-# Define the services/containers to be run
+version: '3.7'
 services:
-        
+  dev:
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+      - 3001:9229
+    networks:
+      - nesjs-network
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
   mongodb: 
     image: mongo 
     environment:
       - MONGODB_DATABASE="chek_back_test"
     volumes:
-      - mongodata:/data/db
+      - ./database:/data/db
     ports:
-      - "27017:27017"
+      - 27017:27017
     networks:
-      - backend   
-
-volumes:
-  mongodata:  
+      - nesjs-network 
+  prod:
+    container_name: nestjs_api_prod
+    image: nestjs-api-prod:1.0.0
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run start:prod
+    ports:
+      - 3000:3000
+      - 9229:9229
+    networks:
+      - nesjs-network
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
 networks:
-  backend:
+    nesjs-network:
+      driver: bridge
