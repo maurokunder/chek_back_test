@@ -11,7 +11,7 @@ import { RecipientModule } from './recipient/recipient.module';
       envFilePath: '.env.development',
       isGlobal: true,
     }),
-    MongooseModule.forRoot(process.env.URI_MONGODB),
+    MongooseModule.forRoot('mongodb://localhost:27017/chek_back_test'),
     RecipientModule,
   ],
   controllers: [AppController],
