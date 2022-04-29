@@ -18,7 +18,4 @@ export class RecipientService {
         return await this.model.find();
     }
 
-    async findRecipientById(id: string): Promise<IRecipient> {
-        return await this.model.findById(id);
-    }
 }

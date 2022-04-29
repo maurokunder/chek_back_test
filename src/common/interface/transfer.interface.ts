@@ -1,4 +1,4 @@
-export interface IRecipient extends Document {
+export interface ITransfer extends Document {
     rut: string;
     fullName: string;
     email: string;
@@ -6,4 +6,5 @@ export interface IRecipient extends Document {
     bankId: string;
     typeAccount: string;
     accountNumber: string;
+    amount?: number;
 }

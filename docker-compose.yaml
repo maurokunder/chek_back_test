@@ -19,11 +19,11 @@ services:
       - /usr/src/app/node_modules
     restart: unless-stopped
   mongodb: 
-    image: mongo 
+    image: mongo:latest 
     environment:
       - MONGODB_DATABASE="chek_back_test"
     volumes:
-      - ./database:/data/db
+      - mongodata:/data/db
     ports:
       - 27017:27017
     networks:
@@ -49,3 +49,6 @@ services:
 networks:
     nesjs-network:
       driver: bridge
+volumes:
+  mongodata:
+  
