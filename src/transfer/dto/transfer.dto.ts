@@ -1,4 +1,4 @@
-export class RecipientDTO {
+export class TransferDTO {
     readonly rut: string;
     readonly fullName: string;
     readonly email: string;
@@ -6,4 +6,5 @@ export class RecipientDTO {
     readonly bankId: string;
     readonly typeAccount: string;
     readonly accountNumber: string;
+    readonly amount?: number;
 }

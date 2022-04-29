@@ -10,13 +10,9 @@ export class RecipientController {
         return this.recipientService.create(recipientDTO);
     }
 
-    @Get('history')
+    @Get('all-recipients')
     findAll() {
         return this.recipientService.findAll();
     }
 
-    @Get('findOne/:id')
-    findRecipientById(@Param('id') id:string ) {
-        return this.recipientService.findRecipientById(id);
-    }
 }
