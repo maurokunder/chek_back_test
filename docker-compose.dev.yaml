@@ -1,18 +1,21 @@
 version: '3.7'
 services:
   app:
-    image: nestjs-api:1.0.0
-    container_name: nestjs_api
-    env_file: .env
+    container_name: nestjs_api_dev
+    image: nestjs-api-dev:1.0.0
     build:
       context: .
       dockerfile: ./Dockerfile
+    env_file: .env
     ports:
       - 80:3000
     networks:
       - nesjs-network
     depends_on:
       - mongodb
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     restart: always
   mongodb: 
     image: mongo:latest 

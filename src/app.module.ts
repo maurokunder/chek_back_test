@@ -9,10 +9,10 @@ import { TransferModule } from './transfer/transfer.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.development',
+      envFilePath: '.env',
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/chek_back_test'),
+    MongooseModule.forRoot(process.env.URI_MONGODB),
     RecipientModule,
     TransferModule,
   ],
