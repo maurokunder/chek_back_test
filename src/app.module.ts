@@ -12,7 +12,7 @@ import { TransferModule } from './transfer/transfer.module';
       envFilePath: '.env.development',
       isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://mongodb:27017/chek_back_test'),
+    MongooseModule.forRoot('mongodb://localhost:27017/chek_back_test'),
     RecipientModule,
     TransferModule,
   ],
