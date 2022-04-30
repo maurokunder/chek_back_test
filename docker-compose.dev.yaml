@@ -1,35 +1,18 @@
 version: '3.7'
 services:
   app:
-    container_name: nestjs_api_dev
-    image: nestjs-api-dev:1.0.0
+    container_name: nestjs_api
+    image: nestjs-api:1.0.0
     build:
-      context: .
-      dockerfile: ./Dockerfile
+        context: .
+        dockerfile: Dockerfile
     env_file: .env
+    platform: linux/amd64
     ports:
       - 80:3000
-    networks:
-      - nesjs-network
-    depends_on:
-      - mongodb
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    restart: always
-  mongodb: 
-    image: mongo:latest 
-    environment:
-      - MONGODB_DATABASE="chek_back_test"
-    volumes:
-      - mongodata:/data/db
-    ports:
-      - 27017:27017
     networks:
       - nesjs-network
     restart: always
 networks:
     nesjs-network:
       driver: bridge
-volumes:
-  mongodata:
