@@ -3,7 +3,7 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { TransferDTO } from './dto/transfer.dto';
 import { TransferService } from './transfer.service';
 
-@ApiTags('Transfers')
+@ApiTags('transfers')
 @Controller('api/v1/')
 export class TransferController {
     constructor(private readonly transferService: TransferService) {}
