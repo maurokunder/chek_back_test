@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionFilter);
   app.useGlobalInterceptors(new TimeOutInterceptor());
   app.enableCors({
-    origin: ['http://localhost:4200'],
+    origin: ['http://localhost:4200', 'http://34.201.64.141docker ', 'http://localhost:3000'],
     credentials: true,
   });
   const options = new DocumentBuilder()

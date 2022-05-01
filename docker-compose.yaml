@@ -2,10 +2,14 @@ version: '3.7'
 services:
   app:
     container_name: nestjs_api
-    image: moyar7/nestjs-api:1.0.0
+    image: nestjs-api:1.0.0
+    build:
+        context: .
+        dockerfile: Dockerfile
     env_file: .env
+    platform: linux/amd64
     ports:
-      - 80:3000
+      - 3000:3000
     networks:
       - nesjs-network
     restart: always
