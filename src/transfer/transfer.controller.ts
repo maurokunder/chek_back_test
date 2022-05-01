@@ -4,7 +4,7 @@ import { TransferDTO } from './dto/transfer.dto';
 import { TransferService } from './transfer.service';
 
 @ApiTags('transfers')
-@Controller('api/v1/')
+@Controller()
 export class TransferController {
     constructor(private readonly transferService: TransferService) {}
 

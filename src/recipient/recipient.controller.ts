@@ -4,7 +4,7 @@ import { RecipientDTO } from './dto/recipient.dto';
 import { RecipientService } from './recipient.service';
 
 @ApiTags('recipients')
-@Controller('api/v1/')
+@Controller()
 export class RecipientController {
     constructor(private readonly recipientService: RecipientService) {}
     @Post('new_recipient')
