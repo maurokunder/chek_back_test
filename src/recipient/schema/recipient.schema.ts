@@ -12,5 +12,4 @@ export const RecipientSchema = new mongoose.Schema({
     timestamps:true
 });
 
-/* RecipientSchema.index({ rut:1 },{ unique:true });
-RecipientSchema.index({ email:1 },{ unique:true }); */
+RecipientSchema.index({ accountNumber:1 },{ unique:true });
